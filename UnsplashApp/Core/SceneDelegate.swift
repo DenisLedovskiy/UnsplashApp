@@ -13,11 +13,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+//        let window = UIWindow(windowScene: windowScene)
+//        window.rootViewController = TabBarViewController()
+//        window.makeKeyAndVisible()
+//        self.window = window
+
+
+        let window = UIWindow(windowScene: windowScene)
+        let rootVC = TabBarViewController()
+//        let rootVC = HomeViewController()
+        let navVC = NavigationViewController()
+        rootVC.navigationItem.title = "Unsplash App"
+        navVC.viewControllers = [rootVC]
+        window.rootViewController = navVC
+        window.makeKeyAndVisible()
+        self.window = window
+
+//        lazy var configuredNavigationController: UINavigationController = {
+//            let navVC = UINavigationController()
+//            navVC.navigationBar.barTintColor = UIColor.black
+//            navVC.navigationBar.isTranslucent = false
+//            navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            return navVC
+//        }()
+
+
+//        let rootVC = SearchViewController()
+//        rootVC.navigationItem.title = "Search via iTunes"
+//
+//        let navVC = self.configuredNavigationController
+//        navVC.viewControllers = [rootVC]
+//
+//        window?.rootViewController = navVC
+        //        window?.makeKeyAndVisible()
     }
+}
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -47,6 +81,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
-}
 
