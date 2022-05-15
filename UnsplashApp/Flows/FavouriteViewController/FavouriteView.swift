@@ -17,6 +17,8 @@ class FavouriteView: UIView {
         return tableView
     }()
 
+    // MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -26,6 +28,8 @@ class FavouriteView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - UI
 
     func setupViews() {
         self.backgroundColor = .gray

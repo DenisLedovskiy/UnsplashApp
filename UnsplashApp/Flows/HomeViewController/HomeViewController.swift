@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
 
     var photoArray = [PhotoForCell]()
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -45,7 +47,9 @@ class HomeViewController: UIViewController {
         self.view.endEditing(true)
     }
 
-    func requestRandomPhoto() {
+    // MARK: - Private funcs
+
+    private func requestRandomPhoto() {
 
         let urlPhoto = "https://api.unsplash.com/photos"
         let accesKey = "vZtCkFdbaBjR3oG5N2gMwZNN-MqHqqxGDnPgoDcbwtg"
@@ -68,7 +72,7 @@ class HomeViewController: UIViewController {
         }
     }
 
-    func fillPhotoArray(_ randomPhoto: [RandomPhoto]) {
+    private func fillPhotoArray(_ randomPhoto: [RandomPhoto]) {
 
         let randomPhotoCount = randomPhoto.count
 
@@ -80,7 +84,7 @@ class HomeViewController: UIViewController {
         }
     }
 
-    func searchRequest(with query: String) {
+    private func searchRequest(with query: String) {
 
         let searchText = query
         let urlPhoto = "https://api.unsplash.com/search/photos"
@@ -115,6 +119,8 @@ class HomeViewController: UIViewController {
         }
     }
 }
+
+//MARK: - UISearchBarDelegate
 
 extension HomeViewController: UISearchBarDelegate {
 

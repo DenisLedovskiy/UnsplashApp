@@ -12,6 +12,8 @@ enum LayoutConstants {
     static let itemHeight: CGFloat = 200.0
 }
 
+//MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -37,6 +39,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                                                  animated: true)
     }
 }
+
+//MARK: - UICollectionViewDelegateFlowLayout
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 

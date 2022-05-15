@@ -9,7 +9,7 @@ import UIKit
 
 final class FavouritePhotoCell: UITableViewCell {
 
-    // MARK: - Properties
+    // MARK: - Subviews
 
     let photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -20,6 +20,8 @@ final class FavouritePhotoCell: UITableViewCell {
 
     let nameLabel = UILabel()
 
+    // MARK: - Init
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: .none)
         setupViewsCell()
@@ -29,6 +31,15 @@ final class FavouritePhotoCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Methods
+
+    func configureFavouritePhotoCell(_ photoArray: UIImage, name: String) {
+        nameLabel.text = name
+        photoImageView.image = photoArray
+    }
+
+    // MARK: - UI
 
     private func setupViewsCell() {
         contentView.clipsToBounds = true
@@ -50,12 +61,9 @@ final class FavouritePhotoCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8)
         ])
     }
-
-    func configureFavouritePhotoCell(_ photoArray: UIImage, name: String) {
-        nameLabel.text = name
-        photoImageView.image = photoArray
-    }
 }
+
+// MARK: - Extension
 
 extension FavouritePhotoCell: ReusableView {
     static var identifire: String {

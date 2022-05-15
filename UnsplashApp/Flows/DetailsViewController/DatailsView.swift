@@ -25,6 +25,7 @@ class DetailsView: UIView {
         return button
     }()
 
+    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,16 +34,14 @@ class DetailsView: UIView {
     init(frame: CGRect, image: UIImage) {
         super.init(frame: frame)
         configure(image: image)
-        addActrions()
+        addActions()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
-        self.backgroundColor = .blue
-    }
+    // MARK: - UI
 
     func configure(image: UIImage) {
 
@@ -78,7 +77,9 @@ class DetailsView: UIView {
         likeButton.topAnchor.constraint(equalTo: labelDownloads.bottomAnchor).isActive = true
     }
 
-    private func addActrions() {
+    // MARK: - Actions
+
+    private func addActions() {
         likeButton.addTarget(self, action: #selector(self.likeButtonPressed), for: .touchUpInside)
     }
 

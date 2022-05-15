@@ -16,40 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-//        let window = UIWindow(windowScene: windowScene)
-//        window.rootViewController = TabBarViewController()
-//        window.makeKeyAndVisible()
-//        self.window = window
-
-
         let window = UIWindow(windowScene: windowScene)
         let rootVC = TabBarViewController()
-//        let rootVC = HomeViewController()
         let navVC = NavigationViewController()
         rootVC.navigationItem.title = "Unsplash App"
         navVC.viewControllers = [rootVC]
         window.rootViewController = navVC
         window.makeKeyAndVisible()
         self.window = window
-
-//        lazy var configuredNavigationController: UINavigationController = {
-//            let navVC = UINavigationController()
-//            navVC.navigationBar.barTintColor = UIColor.black
-//            navVC.navigationBar.isTranslucent = false
-//            navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//            navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//            return navVC
-//        }()
-
-
-//        let rootVC = SearchViewController()
-//        rootVC.navigationItem.title = "Search via iTunes"
-//
-//        let navVC = self.configuredNavigationController
-//        navVC.viewControllers = [rootVC]
-//
-//        window?.rootViewController = navVC
-        //        window?.makeKeyAndVisible()
     }
 }
 

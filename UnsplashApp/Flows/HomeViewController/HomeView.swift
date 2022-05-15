@@ -10,12 +10,7 @@ import Alamofire
 
 class HomeView: UIView {
 
-    var photoArray = [PhotoForCell]()
-    var backgroundView: UIView?
-    var zoomImage: UIImageView?
-    var labelSelected = UILabel()
-    var labelLocation = UILabel()
-    var labelDownloads = UILabel()
+    // MARK: - Subviews
 
     let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -29,6 +24,8 @@ class HomeView: UIView {
         return searchBar
     }()
 
+    // MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -38,6 +35,7 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - UI
 
     func setupViews() {
         self.backgroundColor = .gray

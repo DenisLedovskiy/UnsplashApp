@@ -34,6 +34,8 @@ class DetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Description"
@@ -47,6 +49,8 @@ class DetailsViewController: UIViewController {
     override func loadView() {
         self.view = DetailsView(frame: UIScreen.main.bounds, image: image)
     }
+
+    // MARK: - Private funcs
 
     private func showAlertAdd() {
         let alert = UIAlertController(title: "Ура!", message:"Фото добавлено в избранное", preferredStyle: .alert)
@@ -63,7 +67,7 @@ class DetailsViewController: UIViewController {
     }
 
 
-    func showSelectedView(id: String) {
+    private func showSelectedView(id: String) {
 
         let urlPhoto = "https://api.unsplash.com/photos/\(id)/"
         let accesKey = "vZtCkFdbaBjR3oG5N2gMwZNN-MqHqqxGDnPgoDcbwtg"
@@ -86,7 +90,9 @@ class DetailsViewController: UIViewController {
         }
     }
 
-    func tapLikeButton() {
+    // MARK: - View Actions
+
+    private func tapLikeButton() {
 
         let urlText = self.urlPhoto
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -126,5 +132,4 @@ class DetailsViewController: UIViewController {
             fatalError("Failed to fetch memory: \(error)")
         }
     }
-
 }
