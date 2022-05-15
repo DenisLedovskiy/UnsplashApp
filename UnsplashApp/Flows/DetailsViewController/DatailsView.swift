@@ -15,6 +15,7 @@ class DetailsView: UIView {
     var labelSelected = UILabel()
     var labelLocation = UILabel()
     var labelDownloads = UILabel()
+    var labelDate = UILabel()
     var detailImage: UIImageView?
     
     var onAddLikeButtonAction: (() -> Void)?
@@ -65,6 +66,11 @@ class DetailsView: UIView {
         labelLocation.translatesAutoresizingMaskIntoConstraints = false
         labelLocation.centerXAnchor.constraint(equalTo: detailImage!.centerXAnchor).isActive = true
         labelLocation.topAnchor.constraint(equalTo: detailImage!.topAnchor, constant: -80).isActive = true
+
+        self.addSubview(labelDate)
+        labelDate.translatesAutoresizingMaskIntoConstraints = false
+        labelDate.centerXAnchor.constraint(equalTo: detailImage!.centerXAnchor).isActive = true
+        labelDate.topAnchor.constraint(equalTo: detailImage!.topAnchor, constant: -60).isActive = true
 
         self.addSubview(labelDownloads)
         labelDownloads.translatesAutoresizingMaskIntoConstraints = false

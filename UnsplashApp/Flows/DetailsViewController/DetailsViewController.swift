@@ -53,19 +53,18 @@ class DetailsViewController: UIViewController {
     // MARK: - Private funcs
 
     private func showAlertAdd() {
-        let alert = UIAlertController(title: "Ура!", message:"Фото добавлено в избранное", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Wow!", message:"Фото добавлено в избранное", preferredStyle: .alert)
         let actionOk = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionOk)
         self.present(alert, animated: true, completion: nil)
     }
 
     private func showAlertExist() {
-        let alert = UIAlertController(title: "Упс!", message:"Такое фото уже есть в избранном", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Oops!", message:"Фото уже в избранном", preferredStyle: .alert)
         let actionOk = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(actionOk)
         self.present(alert, animated: true, completion: nil)
     }
-
 
     private func showSelectedView(id: String) {
 
@@ -82,6 +81,12 @@ class DetailsViewController: UIViewController {
                 self.mainView.labelSelected.text = "Name: \(response.user.name)"
                 self.mainView.labelLocation.text = "Location: \(response.location.city ?? "---"), \(response.location.country ?? "---")"
                 self.mainView.labelDownloads.text = "Downloads: \(response.downloads)"
+
+                let date = response.created_at
+                let index = date.index(date.startIndex, offsetBy: 9)
+                let newStr = date[...index]
+
+                self.mainView.labelDate.text = "Created: \(newStr)"
 
                 self.nameAuthor = "\(response.user.name)"
             } catch (let error) {

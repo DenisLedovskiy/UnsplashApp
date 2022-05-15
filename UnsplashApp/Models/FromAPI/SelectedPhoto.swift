@@ -14,7 +14,6 @@ struct SelectedPhoto: Codable {
     let user: SelectedPhotoUser
     let location: SelectedPhotoLocation
     let downloads: Int
-
 }
 
 struct SelectedPhotoLocation: Codable {
